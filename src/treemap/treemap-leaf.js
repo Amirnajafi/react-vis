@@ -70,13 +70,12 @@ function TreemapLeaf(props) {
   const color = getFontColorFromBackground(background);
   const {data} = node;
   const title = getLabel(data);
-  const parent = node.parent ? true : false
-  console.log("node" ,node , "parent" , parent)
+  const parent = node.children
   const leafStyle = {
-    top: useCirclePacking ? y0 - r : y0,
+    top: useCirclePacking ? y0 - r : (parent ? y0 + 20 : y0 ,
     left: useCirclePacking ? x0 - r : x0,
     width: useCirclePacking ? r * 2 : x1 - x0,
-    height: useCirclePacking ? r * 2 : y1 - y0,
+    height: useCirclePacking ? r * 2 : (parent ? (y1 - y0) + 20 : y1 - y0,
     background,
     opacity,
     color,
