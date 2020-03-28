@@ -70,6 +70,8 @@ function TreemapLeaf(props) {
   const color = getFontColorFromBackground(background);
   const {data} = node;
   const title = getLabel(data);
+  const parent = node.parent ? true : false
+  console.log("node" ,node , "parent" , parent)
   const leafStyle = {
     top: useCirclePacking ? y0 - r : y0,
     left: useCirclePacking ? x0 - r : x0,
@@ -92,7 +94,7 @@ function TreemapLeaf(props) {
       onClick={event => onLeafClick(node, event)}
       style={leafStyle}
     >
-      <div className="rv-treemap__leaf__content">{title}</div>
+      <div className="amr rv-treemap__leaf__content">{title}</div>
     </div>
   );
 }
